@@ -53,3 +53,15 @@ Clone this repository and run the pipeline using **Docker Compose**:
 git clone https://github.com/<your-username>/fraud-detection-pipeline.git
 cd fraud-detection-pipeline
 docker-compose up
+
+## 🛡️ License
+This project is licensed under the MIT License. You are free to use, modify, and share this project with proper attribution.
+
+## 🌟 About Me
+Hi there! I'm Mohamed. A Data Engineer trainee at ITI with hands-on experience in data pipelines, warehousing, and big data tools. Passionate about turning data into insights and growing my technical skills.
+
+
+
+Let's stay in touch! Feel free to connect with me on the following platforms:  
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white)](mailto:mo.badr.ismail@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mbi162/)
