@@ -1,0 +1,30 @@
+[2025-08-20T23:12:14.806+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.audit_customer_transactions manual__2025-08-20T23:10:49.867817+00:00 [queued]>
+[2025-08-20T23:12:14.945+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.audit_customer_transactions manual__2025-08-20T23:10:49.867817+00:00 [queued]>
+[2025-08-20T23:12:14.945+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-20T23:12:14.957+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonDecoratedOperator): audit_customer_transactions> on 2025-08-20 23:10:49.867817+00:00
+[2025-08-20T23:12:14.963+0000] {standard_task_runner.py:60} INFO - Started process 10083 to run task
+[2025-08-20T23:12:14.966+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'fraud_detection_pipeline', 'audit_customer_transactions', 'manual__2025-08-20T23:10:49.867817+00:00', '--job-id', '125', '--raw', '--subdir', 'DAGS_FOLDER/fraud_detection_pipeline.py', '--cfg-path', '/tmp/tmp8wvsv0l2']
+[2025-08-20T23:12:14.968+0000] {standard_task_runner.py:88} INFO - Job 125: Subtask audit_customer_transactions
+[2025-08-20T23:12:15.023+0000] {task_command.py:423} INFO - Running <TaskInstance: fraud_detection_pipeline.audit_customer_transactions manual__2025-08-20T23:10:49.867817+00:00 [running]> on host f3fd0a28023e
+[2025-08-20T23:12:15.111+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='audit_customer_transactions' AIRFLOW_CTX_EXECUTION_DATE='2025-08-20T23:10:49.867817+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-20T23:10:49.867817+00:00'
+[2025-08-20T23:12:15.113+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/fraud_detection_pipeline.py", line 50, in audit_customer_transactions
+    check(scan_name, checks_subpath, data_source)
+  File "/opt/airflow/include/soda/helpers.py", line 2, in check
+    from soda.scan import Scan
+ModuleNotFoundError: No module named 'soda.scan'
+[2025-08-20T23:12:15.123+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=fraud_detection_pipeline, task_id=audit_customer_transactions, execution_date=20250820T231049, start_date=20250820T231214, end_date=20250820T231215
+[2025-08-20T23:12:15.136+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 125 for task audit_customer_transactions (No module named 'soda.scan'; 10083)
+[2025-08-20T23:12:15.178+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-08-20T23:12:15.199+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

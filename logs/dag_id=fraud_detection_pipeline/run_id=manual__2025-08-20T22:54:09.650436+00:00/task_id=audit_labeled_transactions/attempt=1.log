@@ -1,0 +1,30 @@
+[2025-08-20T22:55:34.831+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.audit_labeled_transactions manual__2025-08-20T22:54:09.650436+00:00 [queued]>
+[2025-08-20T22:55:35.014+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.audit_labeled_transactions manual__2025-08-20T22:54:09.650436+00:00 [queued]>
+[2025-08-20T22:55:35.015+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-20T22:55:35.028+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonExternalDecoratedOperator): audit_labeled_transactions> on 2025-08-20 22:54:09.650436+00:00
+[2025-08-20T22:55:35.034+0000] {standard_task_runner.py:60} INFO - Started process 8730 to run task
+[2025-08-20T22:55:35.037+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'fraud_detection_pipeline', 'audit_labeled_transactions', 'manual__2025-08-20T22:54:09.650436+00:00', '--job-id', '119', '--raw', '--subdir', 'DAGS_FOLDER/fraud_detection_pipeline.py', '--cfg-path', '/tmp/tmpsdz0v9_r']
+[2025-08-20T22:55:35.039+0000] {standard_task_runner.py:88} INFO - Job 119: Subtask audit_labeled_transactions
+[2025-08-20T22:55:35.082+0000] {task_command.py:423} INFO - Running <TaskInstance: fraud_detection_pipeline.audit_labeled_transactions manual__2025-08-20T22:54:09.650436+00:00 [running]> on host f3fd0a28023e
+[2025-08-20T22:55:35.170+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='audit_labeled_transactions' AIRFLOW_CTX_EXECUTION_DATE='2025-08-20T22:54:09.650436+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-20T22:54:09.650436+00:00'
+[2025-08-20T22:55:35.182+0000] {python.py:913} WARNING - When checking for Airflow installed in virtual environment got [Errno 2] No such file or directory: '/opt/airflow/soda_env/bin/python'
+[2025-08-20T22:55:35.184+0000] {python.py:914} WARNING - This means that Airflow is not properly installed by  /opt/airflow/soda_env/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.2 in your environment to access them.
+[2025-08-20T22:55:35.195+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 401, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 844, in execute_callable
+    raise ValueError(f"Python Path '{python_path}' must exists")
+ValueError: Python Path '/opt/airflow/soda_env/bin/python' must exists
+[2025-08-20T22:55:35.205+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=fraud_detection_pipeline, task_id=audit_labeled_transactions, execution_date=20250820T225409, start_date=20250820T225534, end_date=20250820T225535
+[2025-08-20T22:55:35.228+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 119 for task audit_labeled_transactions (Python Path '/opt/airflow/soda_env/bin/python' must exists; 8730)
+[2025-08-20T22:55:35.249+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-08-20T22:55:35.289+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

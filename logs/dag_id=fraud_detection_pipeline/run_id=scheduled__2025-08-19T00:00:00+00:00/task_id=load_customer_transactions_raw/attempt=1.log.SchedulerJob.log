@@ -1,0 +1,1 @@
+[2025-08-20T17:42:54.807+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: fraud_detection_pipeline.load_customer_transactions_raw scheduled__2025-08-19T00:00:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

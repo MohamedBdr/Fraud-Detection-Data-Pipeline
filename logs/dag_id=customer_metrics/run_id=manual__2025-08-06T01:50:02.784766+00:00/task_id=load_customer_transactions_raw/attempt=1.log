@@ -1,0 +1,35 @@
+[2025-08-06T01:50:17.349+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.load_customer_transactions_raw manual__2025-08-06T01:50:02.784766+00:00 [queued]>
+[2025-08-06T01:50:17.618+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.load_customer_transactions_raw manual__2025-08-06T01:50:02.784766+00:00 [queued]>
+[2025-08-06T01:50:17.619+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-08-06T01:50:17.647+0000] {taskinstance.py:2214} INFO - Executing <Task(AirbyteTriggerSyncOperator): load_customer_transactions_raw> on 2025-08-06 01:50:02.784766+00:00
+[2025-08-06T01:50:17.656+0000] {standard_task_runner.py:60} INFO - Started process 6503 to run task
+[2025-08-06T01:50:17.659+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'load_customer_transactions_raw', 'manual__2025-08-06T01:50:02.784766+00:00', '--job-id', '63', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmpy7yg03hs']
+[2025-08-06T01:50:17.661+0000] {standard_task_runner.py:88} INFO - Job 63: Subtask load_customer_transactions_raw
+[2025-08-06T01:50:17.738+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.load_customer_transactions_raw manual__2025-08-06T01:50:02.784766+00:00 [running]> on host a4babef49899
+[2025-08-06T01:50:17.871+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='load_customer_transactions_raw' AIRFLOW_CTX_EXECUTION_DATE='2025-08-06T01:50:02.784766+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-06T01:50:02.784766+00:00'
+[2025-08-06T01:50:17.889+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2025-08-06T01:50:18.321+0000] {airbyte.py:86} INFO - Job 9 was submitted to Airbyte Server
+[2025-08-06T01:50:18.321+0000] {airbyte.py:88} INFO - Waiting for job 9 to complete
+[2025-08-06T01:50:21.564+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2025-08-06T01:50:25.636+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2025-08-06T01:50:55.333+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2025-08-06T01:50:58.386+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2025-08-06T01:51:01.408+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2025-08-06T01:51:04.428+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2025-08-06T01:51:07.452+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2025-08-06T01:51:10.474+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2025-08-06T01:51:10.482+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/airbyte/operators/airbyte.py", line 111, in execute
+    hook.wait_for_job(job_id=self.job_id, wait_seconds=self.wait_seconds, timeout=self.timeout)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/airbyte/hooks/airbyte.py", line 141, in wait_for_job
+    raise Exception(f"Encountered unexpected state `{state}` for job_id `{job_id}`")
+Exception: Encountered unexpected state `failed` for job_id `9`
+[2025-08-06T01:51:10.499+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_metrics, task_id=load_customer_transactions_raw, execution_date=20250806T015002, start_date=20250806T015017, end_date=20250806T015110
+[2025-08-06T01:51:10.512+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 63 for task load_customer_transactions_raw (Encountered unexpected state `failed` for job_id `9`; 6503)
+[2025-08-06T01:51:10.528+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-08-06T01:51:10.563+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
