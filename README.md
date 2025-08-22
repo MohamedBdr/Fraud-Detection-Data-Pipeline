@@ -53,6 +53,7 @@ Clone this repository and run the pipeline using **Docker Compose**:
 git clone https://github.com/<your-username>/fraud-detection-pipeline.git
 cd fraud-detection-pipeline
 docker-compose up
+```
 
 ## 🛡️ License
 This project is licensed under the MIT License. You are free to use, modify, and share this project with proper attribution.
